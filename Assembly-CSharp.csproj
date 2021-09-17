@@ -40,8 +40,24 @@
      <Compile Include="Assets\Scripts\Components\Defender.cs" />
      <Compile Include="Assets\Scripts\Renderers\HPRenderer.cs" />
      <Compile Include="Assets\Scripts\Components\Attacker.cs" />
-     <Compile Include="Assets\Scripts\Utils\HexGrid.cs" />
+     <Compile Include="Assets\Scripts\Utils\HexGrid\HexGrid.cs" />
      <Compile Include="Assets\Scripts\Utils\FPSCounter.cs" />
+     <Compile Include="Assets\Scripts\Utils\HexGrid\HexPos.cs" />
+     <Compile Include="Assets\Scripts\Utils\HexGrid\HexLayout.cs" />
+     <Compile Include="Assets\Scripts\Utils\HexGrid\HexGizmoTest.cs" />
+     <Compile Include="Assets\Scripts\Utils\GOPool.cs" />
+     <Compile Include="Assets\Scripts\Utils\Locator.cs" />
+     <Compile Include="Assets\Scripts\Utils\PoolObject.cs" />
+     <Compile Include="Assets\Scripts\Simulation\SimulationController.cs" />
+     <Compile Include="Assets\Scripts\Systems\InitBoardSystem.cs" />
+     <Compile Include="Assets\Scripts\Simulation\Constants.cs" />
+     <Compile Include="Assets\Scripts\Systems\UpdateHPSystem.cs" />
+     <Compile Include="Assets\Scripts\Components\BaseHP.cs" />
+     <Compile Include="Assets\Scripts\Components\Number.cs" />
+     <Compile Include="Assets\Scripts\Simulation\SimulationState.cs" />
+     <Compile Include="Assets\Scripts\Renderers\SimulationUI.cs" />
+     <Compile Include="Assets\Scripts\Systems\TouchInputSystem.cs" />
+     <Compile Include="Assets\Scripts\Systems\MouseInputSystem.cs" />
      <None Include="Assets\StandardAssets\Axies\Defender\axie.atlas.txt" />
      <None Include="Assets\StandardAssets\Axies\Attacker\axie.atlas.txt" />
     <Reference Include="UnityEngine">
@@ -652,6 +668,9 @@
     </Reference>
     <Reference Include="UnityEngine.UI">
         <HintPath>/Users/locnt/code/game-test-02/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+        <HintPath>/Users/locnt/code/game-test-02/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
