@@ -66,10 +66,6 @@ namespace Game
 					if (possibleMoves.Count() > 0)
 					{
 						var bestMove = possibleMoves.First();
-						// _hexGrid[bestMove] = _hexGrid[hex];
-						// _hexGrid[hex] = -1;
-						// _world.Replace(entity, bestMove);
-
 						_world.CreateEntity(
 							new MoveUnit { fromHex = hex, toHex = bestMove },
 							new DestroyEntity()

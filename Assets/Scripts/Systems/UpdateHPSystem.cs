@@ -6,11 +6,14 @@ namespace Game
 	{
 		public void Initialize()
 		{
-			_world.ForEach((BaseHP baseHP, HPRenderer renderer) => {
-				renderer.SetBaseHP(baseHP.value);
-			});
-
+			_world.All<BaseHP, HPRenderer>().OnAdded.Bind(OnHPInit);
 			_world.All<HP, HPRenderer>().OnReplaced.Bind(OnHPChanged);
+		}
+
+		private void OnHPInit(int entity)
+		{
+			_world.Get(entity, out BaseHP baseHp, out HPRenderer hpRenderer);
+			hpRenderer.SetBaseHP(baseHp.value);
 		}
 
 		private void OnHPChanged(int entity)

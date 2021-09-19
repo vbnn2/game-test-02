@@ -36,36 +36,36 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Plugins\Spine\spine-unity\Editor\SpineEditorUtilities.cs" />
+     <Compile Include="Assets\Plugins\Spine\spine-unity\Editor\AtlasAssetInspector.cs" />
+     <Compile Include="Assets\Plugins\Spine\spine-unity\Modules\Ragdoll\Editor\SkeletonRagdoll2DInspector.cs" />
      <Compile Include="Assets\Plugins\Spine\spine-unity\Modules\Timeline\SpineAnimationState\Editor\SpineAnimationStateDrawer.cs" />
-     <Compile Include="Assets\Plugins\Spine\spine-unity\Editor\AnimationReferenceAssetEditor.cs" />
      <Compile Include="Assets\Plugins\Spine\spine-unity\Editor\SpineInspectorUtility.cs" />
-     <Compile Include="Assets\Plugins\Spine\spine-unity\Editor\SkeletonDebugWindow.cs" />
-     <Compile Include="Assets\Plugins\Spine\spine-unity\Editor\SpineAttributeDrawers.cs" />
      <Compile Include="Assets\Plugins\Spine\spine-unity\SkeletonUtility\Editor\SkeletonUtilityInspector.cs" />
      <Compile Include="Assets\Plugins\Spine\spine-unity\Modules\SkeletonRenderSeparator\Editor\SkeletonPartsRendererInspector.cs" />
      <Compile Include="Assets\Plugins\Spine\spine-unity\Modules\CustomMaterials\Editor\SkeletonRendererCustomMaterialsInspector.cs" />
      <Compile Include="Assets\Plugins\Spine\spine-unity\Modules\BoundingBoxFollower\Editor\BoundingBoxFollowerInspector.cs" />
-     <Compile Include="Assets\Plugins\Spine\spine-unity\Editor\SkeletonAnimationInspector.cs" />
-     <Compile Include="Assets\Plugins\Spine\spine-unity\Modules\Ragdoll\Editor\SkeletonRagdollInspector.cs" />
-     <Compile Include="Assets\Plugins\Spine\spine-unity\Editor\SkeletonAnimatorInspector.cs" />
-     <Compile Include="Assets\Plugins\Spine\spine-unity\SkeletonUtility\Editor\SkeletonUtilityBoneInspector.cs" />
-     <Compile Include="Assets\Plugins\Spine\spine-unity\Editor\SkeletonDataAssetInspector.cs" />
-     <Compile Include="Assets\Plugins\Spine\spine-unity\Editor\PointFollowerEditor.cs" />
-     <Compile Include="Assets\Plugins\Spine\spine-unity\Editor\SkeletonBaker.cs" />
-     <Compile Include="Assets\Plugins\Spine\spine-unity\Modules\SlotBlendModes\Editor\SlotBlendModesEditor.cs" />
      <Compile Include="Assets\Plugins\Spine\spine-unity\Modules\Timeline\SpineSkeletonFlip\Editor\SpineSkeletonFlipDrawer.cs" />
      <Compile Include="Assets\Plugins\Spine\spine-unity\Editor\SkeletonBakingWindow.cs" />
-     <Compile Include="Assets\Plugins\Spine\spine-unity\Editor\AssetDatabaseAvailabilityDetector.cs" />
-     <Compile Include="Assets\Plugins\Spine\spine-unity\Editor\BoneFollowerInspector.cs" />
-     <Compile Include="Assets\Plugins\Spine\spine-unity\Modules\SkeletonGraphic\Editor\BoneFollowerGraphicInspector.cs" />
-     <Compile Include="Assets\Plugins\Spine\spine-unity\Editor\Menus.cs" />
-     <Compile Include="Assets\Plugins\Spine\spine-unity\Editor\AtlasAssetInspector.cs" />
-     <Compile Include="Assets\Plugins\Spine\spine-unity\Modules\Shaders\Sprite\Editor\SpineSpriteShaderGUI.cs" />
-     <Compile Include="Assets\Plugins\Spine\spine-unity\Modules\Ragdoll\Editor\SkeletonRagdoll2DInspector.cs" />
-     <Compile Include="Assets\Plugins\Spine\spine-unity\Modules\SkeletonRenderSeparator\Editor\SkeletonRenderSeparatorInspector.cs" />
+     <Compile Include="Assets\Plugins\Spine\spine-unity\Editor\SkeletonDebugWindow.cs" />
+     <Compile Include="Assets\Plugins\Spine\spine-unity\Editor\SkeletonBaker.cs" />
+     <Compile Include="Assets\Plugins\Spine\spine-unity\Modules\SlotBlendModes\Editor\SlotBlendModesEditor.cs" />
      <Compile Include="Assets\Plugins\Spine\spine-unity\Modules\SkeletonGraphic\Editor\SkeletonGraphicInspector.cs" />
+     <Compile Include="Assets\Plugins\Spine\spine-unity\Editor\AssetDatabaseAvailabilityDetector.cs" />
+     <Compile Include="Assets\Plugins\Spine\spine-unity\Modules\SkeletonRenderSeparator\Editor\SkeletonRenderSeparatorInspector.cs" />
+     <Compile Include="Assets\Plugins\Spine\spine-unity\Editor\SpineAttributeDrawers.cs" />
+     <Compile Include="Assets\Plugins\Spine\spine-unity\Editor\SkeletonDataAssetInspector.cs" />
+     <Compile Include="Assets\Plugins\Spine\spine-unity\Editor\BoneFollowerInspector.cs" />
+     <Compile Include="Assets\Plugins\Spine\spine-unity\Editor\SpineEditorUtilities.cs" />
+     <Compile Include="Assets\Plugins\Spine\spine-unity\Editor\AnimationReferenceAssetEditor.cs" />
+     <Compile Include="Assets\Plugins\Spine\spine-unity\Editor\SkeletonAnimatorInspector.cs" />
+     <Compile Include="Assets\Plugins\Spine\spine-unity\SkeletonUtility\Editor\SkeletonUtilityBoneInspector.cs" />
+     <Compile Include="Assets\Plugins\Spine\spine-unity\Editor\Menus.cs" />
+     <Compile Include="Assets\Plugins\Spine\spine-unity\Modules\Ragdoll\Editor\SkeletonRagdollInspector.cs" />
+     <Compile Include="Assets\Plugins\Spine\spine-unity\Modules\SkeletonGraphic\Editor\BoneFollowerGraphicInspector.cs" />
      <Compile Include="Assets\Plugins\Spine\spine-unity\Editor\SkeletonRendererInspector.cs" />
+     <Compile Include="Assets\Plugins\Spine\spine-unity\Editor\SkeletonAnimationInspector.cs" />
+     <Compile Include="Assets\Plugins\Spine\spine-unity\Editor\PointFollowerEditor.cs" />
+     <Compile Include="Assets\Plugins\Spine\spine-unity\Modules\Shaders\Sprite\Editor\SpineSpriteShaderGUI.cs" />
      <None Include="Assets\Plugins\Spine\spine-unity\Editor\Resources\SpineAssetDatabaseMarker.txt" />
     <Reference Include="UnityEngine">
         <HintPath>/Users/locnt/app/2020.3.12f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -304,20 +304,20 @@
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
         <HintPath>/Users/locnt/code/game-test-02/Library/PackageCache/com.unity.collab-proxy@1.5.7/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="DOTweenEditor">
+        <HintPath>/Users/locnt/code/game-test-02/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
+    </Reference>
     <Reference Include="log4netPlastic">
         <HintPath>/Users/locnt/code/game-test-02/Library/PackageCache/com.unity.collab-proxy@1.5.7/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+        <HintPath>/Users/locnt/code/game-test-02/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
         <HintPath>/Users/locnt/code/game-test-02/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="unityplastic">
         <HintPath>/Users/locnt/code/game-test-02/Library/PackageCache/com.unity.collab-proxy@1.5.7/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTween">
-        <HintPath>/Users/locnt/code/game-test-02/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTweenEditor">
-        <HintPath>/Users/locnt/code/game-test-02/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
         <HintPath>/Users/locnt/code/game-test-02/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
@@ -700,6 +700,9 @@
     <Reference Include="Unity.TextMeshPro">
         <HintPath>/Users/locnt/code/game-test-02/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+        <HintPath>/Users/locnt/code/game-test-02/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.UI">
         <HintPath>/Users/locnt/code/game-test-02/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
@@ -718,13 +721,13 @@
       <Project>{86737bf6-246f-fd4f-ea0e-243cd753efb4}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
-    <ProjectReference Include="DOTween.Modules.csproj">
-      <Project>{49bc374a-2be6-32fb-a29f-78032d61eae4}</Project>
-      <Name>DOTween.Modules</Name>
-    </ProjectReference>
     <ProjectReference Include="ECS.Runtime.csproj">
       <Project>{b6797cfe-08b6-db88-86e3-c18758fc0dd0}</Project>
       <Name>ECS.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="DOTween.Modules.csproj">
+      <Project>{49bc374a-2be6-32fb-a29f-78032d61eae4}</Project>
+      <Name>DOTween.Modules</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

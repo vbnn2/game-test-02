@@ -26,6 +26,9 @@ namespace Game
 		public List<AttackDmg> attackDmgs;
 		public int numSpace;
 		public float hexSize;
+		public float turnTime;
+		public float frameSampleTime;
+		public float frameSampleDelay;
 
 		public int GetDmg(int value)
 		{

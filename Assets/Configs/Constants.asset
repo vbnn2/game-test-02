@@ -27,3 +27,6 @@ MonoBehaviour:
     dmg: 3
   numSpace: 1
   hexSize: 0.52
+  turnTime: 1
+  frameSampleTime: 1
+  frameSampleDelay: 0.2

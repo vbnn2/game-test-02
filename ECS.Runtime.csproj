@@ -36,26 +36,26 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Plugins\ECS\Core\DataBase\Database.cs" />
-     <Compile Include="Assets\Plugins\ECS\Core\FilterBuilder.cs" />
-     <Compile Include="Assets\Plugins\ECS\Core\World_Group.cs" />
-     <Compile Include="Assets\Plugins\ECS\Utils\ArrayUtils.cs" />
-     <Compile Include="Assets\Plugins\ECS\Core\World_Entity.cs" />
-     <Compile Include="Assets\Plugins\ECS\Core\World_Initialize.cs" />
-     <Compile Include="Assets\Plugins\ECS\Core\Systems.cs" />
      <Compile Include="Assets\Plugins\ECS\Core\Signal.cs" />
-     <Compile Include="Assets\Plugins\ECS\Core\ComponentPool.cs" />
-     <Compile Include="Assets\Plugins\ECS\Utils\TypeId.cs" />
+     <Compile Include="Assets\Plugins\ECS\Core\World_Component.cs" />
+     <Compile Include="Assets\Plugins\ECS\Core\World_Initialize.cs" />
+     <Compile Include="Assets\Plugins\ECS\Core\Constants.cs" />
      <Compile Include="Assets\Plugins\ECS\Core\SparseSet.cs" />
-     <Compile Include="Assets\Plugins\ECS\Core\World_ForLoop.cs" />
+     <Compile Include="Assets\Plugins\ECS\Utils\TypeId.cs" />
+     <Compile Include="Assets\Plugins\ECS\Core\Filter.cs" />
+     <Compile Include="Assets\Plugins\ECS\Core\Systems.cs" />
      <Compile Include="Assets\Plugins\ECS\Interface\IEntityCollection.cs" />
+     <Compile Include="Assets\Plugins\ECS\Core\FilterBuilder.cs" />
+     <Compile Include="Assets\Plugins\ECS\Core\World_ForLoop.cs" />
+     <Compile Include="Assets\Plugins\ECS\Core\World_System.cs" />
      <Compile Include="Assets\Plugins\ECS\Core\WorldSettings.cs" />
      <Compile Include="Assets\Plugins\ECS\Core\Group.cs" />
      <Compile Include="Assets\Plugins\ECS\Core\Collector.cs" />
-     <Compile Include="Assets\Plugins\ECS\Core\Constants.cs" />
-     <Compile Include="Assets\Plugins\ECS\Core\World_System.cs" />
-     <Compile Include="Assets\Plugins\ECS\Core\World_Component.cs" />
-     <Compile Include="Assets\Plugins\ECS\Core\Filter.cs" />
+     <Compile Include="Assets\Plugins\ECS\Core\World_Entity.cs" />
+     <Compile Include="Assets\Plugins\ECS\Core\DataBase\Database.cs" />
+     <Compile Include="Assets\Plugins\ECS\Utils\ArrayUtils.cs" />
+     <Compile Include="Assets\Plugins\ECS\Core\World_Group.cs" />
+     <Compile Include="Assets\Plugins\ECS\Core\ComponentPool.cs" />
      <Compile Include="Assets\Plugins\ECS\Core\DataBase\BaseComponentData.cs" />
      <None Include="Assets\Plugins\ECS\ECS.Runtime.asmdef" />
     <Reference Include="UnityEngine">
@@ -295,20 +295,20 @@
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
         <HintPath>/Users/locnt/code/game-test-02/Library/PackageCache/com.unity.collab-proxy@1.5.7/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="DOTweenEditor">
+        <HintPath>/Users/locnt/code/game-test-02/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
+    </Reference>
     <Reference Include="log4netPlastic">
         <HintPath>/Users/locnt/code/game-test-02/Library/PackageCache/com.unity.collab-proxy@1.5.7/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+        <HintPath>/Users/locnt/code/game-test-02/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
         <HintPath>/Users/locnt/code/game-test-02/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="unityplastic">
         <HintPath>/Users/locnt/code/game-test-02/Library/PackageCache/com.unity.collab-proxy@1.5.7/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTween">
-        <HintPath>/Users/locnt/code/game-test-02/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTweenEditor">
-        <HintPath>/Users/locnt/code/game-test-02/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
         <HintPath>/Users/locnt/app/2020.3.12f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

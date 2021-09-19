@@ -13,7 +13,6 @@ namespace Game
 			{
 				var transform = _world.Get<Transform>(entity);
 				_pool.Return(transform);
-				Debug.Log($"Recycle transform: {entity} - {transform.gameObject.name}");
 			});
 		}
 	}

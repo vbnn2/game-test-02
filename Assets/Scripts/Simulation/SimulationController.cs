@@ -23,12 +23,17 @@ namespace Game
 		{
 			_world = new World();
 			_world.AddSystem(
+				new InitStateSystem(),
 				new InitBoardSystem(),
+				new ExpandBoardSystem(),
+				new UpdateTurnTimeSystem(),
 				new UpdateTurnSystem(),
 				new UpdateHPUISystem(),
 				new AttackSystem(),
 				new MoveUnitSystem(),
+				new MoveUnitAnimSystem(),
 				new CheckDeathSystem(),
+				new CheckSimulationEndedSystem(),
 				new GORecyclingSystem(),
 				new DestroyEntitySystem()
 			);
@@ -58,11 +63,6 @@ namespace Game
 		private void OnDestroy()
 		{
 			_world.CleanUp();
-		}
-
-		public void NextStep()
-		{
-			_world.CreateEntity(new NextTurn(), new DestroyEntity());
 		}
 	}
 }

@@ -22,8 +22,6 @@ namespace Game
 				_world.Get(entity, out HexPos hex);
 				_hexGrid[hex] = -1;
 				_world.Add(entity, new DestroyEntity());
-
-				Debug.Log($"Destroy entity: {entity}, ({hex.q}, {hex.r})");
 			}
 
 			_collector.Clear();

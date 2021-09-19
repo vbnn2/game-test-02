@@ -14,7 +14,18 @@ namespace Game
 		
 		public void Initialize()
 		{
-			var totalRadius = _constants.attacker.startLine + _constants.defender.startLine + _constants.numSpace - 1;
+			_world.All<InitBoardEvent>().OnAdded.Bind(CreateBoard);
+		}
+
+		private void CreateBoard(int evtEntity)
+		{
+			_world.Get(evtEntity, out InitBoardEvent evt);
+
+			// Destroy old entities
+			_world.DestroyEntities(_world.Any<HexBG, Attacker, Defender>());
+			_hexGrid.Clear();
+
+			var totalRadius = evt.numAttacker + evt.numDefender + evt.numSpace - 1;
 			_hexGrid.InitHexagon(totalRadius, -1);
 
 			// Init background
@@ -24,7 +35,7 @@ namespace Game
 			}
 
 			// Init defender
-			for (int i = 0; i < _constants.defender.startLine; i++)
+			for (int i = 0; i < evt.numDefender; i++)
 			{
 				var hexes = _hexGrid.GetRingPos(HexPos.kZero, i);
 				foreach (var hex in hexes)
@@ -34,8 +45,8 @@ namespace Game
 			}
 
 			// Init attacker
-			var attackerStartLine = _constants.defender.startLine + _constants.numSpace;
-			var attackerEndLine = attackerStartLine + _constants.attacker.startLine;
+			var attackerStartLine = evt.numDefender + evt.numSpace;
+			var attackerEndLine = attackerStartLine + evt.numAttacker;
 			for (int i = attackerStartLine; i < attackerEndLine; i++)
 			{
 				var hexes = _hexGrid.GetRingPos(HexPos.kZero, i);
@@ -51,6 +62,10 @@ namespace Game
 			var transform = _pool.Get<Transform>("hexagon");
 			transform.SetParent(_ui.root);
 			transform.position = _hexLayout.ToWorldPos(hex, 1f);
+
+			var entity = _world.CreateEntity();
+			_world.Add(entity, transform);
+			_world.Add(entity, new HexBG());
 		}
 
 		private void CreateDefender(HexPos hex)
@@ -71,8 +86,6 @@ namespace Game
 			_world.Add(entity, new Number { value = Random.Range(0, 3) });
 
 			_hexGrid[hex] = entity;
-
-			Debug.Log($"-- Entity {entity} is defender");
 		}
 
 		private void CreateAttacker(HexPos hex)
@@ -91,8 +104,6 @@ namespace Game
 			_world.Add(entity, new Number { value = Random.Range(0, 3) });
 
 			_hexGrid[hex] = entity;
-
-			Debug.Log($"@@ Entity {entity} is attacker");
 		}
 	}
 }

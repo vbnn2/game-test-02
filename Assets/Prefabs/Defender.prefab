@@ -106,7 +106,7 @@ MonoBehaviour:
   useClipping: 1
   immutableTriangles: 1
   pmaVertexColors: 1
-  clearStateOnDisable: 1
+  clearStateOnDisable: 0
   tintBlack: 0
   singleSubmesh: 1
   addNormals: 0
