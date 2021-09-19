@@ -24,7 +24,13 @@ namespace Game
 			_world = new World();
 			_world.AddSystem(
 				new InitBoardSystem(),
-				new UpdateHPUISystem()
+				new UpdateTurnSystem(),
+				new UpdateHPUISystem(),
+				new AttackSystem(),
+				new MoveUnitSystem(),
+				new CheckDeathSystem(),
+				new GORecyclingSystem(),
+				new DestroyEntitySystem()
 			);
 
 			_world.Inject(_ui);
@@ -44,9 +50,19 @@ namespace Game
 			_world.Update();
 		}
 
+		private void LateUpdate()
+		{
+			_world.LateUpdate();
+		}
+
 		private void OnDestroy()
 		{
 			_world.CleanUp();
+		}
+
+		public void NextStep()
+		{
+			_world.CreateEntity(new NextTurn(), new DestroyEntity());
 		}
 	}
 }

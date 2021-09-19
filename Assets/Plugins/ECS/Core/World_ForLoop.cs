@@ -158,6 +158,67 @@ namespace ECS
 		}
 		#endregion
 
+		#region ECC
+		public void ForEachEntity<C1, C2>(F_ECC0<C1, C2> action)
+		{
+			ForEachEntity(All<C1, C2>(), action);
+		}
+
+		public void ForEachEntity<C1, C2>(IEntityCollection collection, F_ECC0<C1, C2> action)
+		{
+			var pool1 = Pool<C1>();
+			var pool2 = Pool<C2>();
+			var (entities, size) = All<C1, C2>().Raw();
+
+			for (int i = size - 1; i >= 0; --i)
+			{
+				int entity = entities[i];
+				action.Invoke(entity, pool1.Get(entity), pool2.Get(entity));
+			}
+		}
+
+		public void ForEachEntity<C1, C2>(F_ECC1<C1, C2> action)
+		{
+			ForEachEntity(All<C1, C2>(), action);
+		}
+
+		public void ForEachEntity<C1, C2>(IEntityCollection collection, F_ECC1<C1, C2> action)
+		{
+			var pool1 = Pool<C1>();
+			var pool2 = Pool<C2>();
+			var (entities, size) = collection.Raw();
+
+			for (int i = size - 1; i >= 0; --i)
+			{
+				int entity = entities[i];
+				action.Invoke(entity, ref pool1.GetRef(entity), pool2.Get(entity));
+			}
+
+			pool1.MarkChanged(entities, size);
+		}
+
+		public void ForEachEntity<C1, C2>(F_ECC2<C1, C2> action)
+		{
+			ForEachEntity(All<C1, C2>(), action);
+		}
+
+		public void ForEachEntity<C1, C2>(IEntityCollection collection, F_ECC2<C1, C2> action)
+		{
+			var pool1 = Pool<C1>();
+			var pool2 = Pool<C2>();
+			var (entities, size) = collection.Raw();
+
+			for (int i = size - 1; i >= 0; --i)
+			{
+				int entity = entities[i];
+				action.Invoke(entity, ref pool1.GetRef(entity), ref pool2.GetRef(entity));
+			}
+
+			pool1.MarkChanged(entities, size);
+			pool2.MarkChanged(entities, size);
+		}
+		#endregion
+
 		#region CCC
 		public void ForEach<C1, C2, C3>(F_CCC0<C1, C2, C3> action)
 		{

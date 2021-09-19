@@ -18,5 +18,12 @@ MonoBehaviour:
   defender:
     startHP: 30
     startLine: 3
+  attackDmgs:
+  - value: 0
+    dmg: 4
+  - value: 1
+    dmg: 5
+  - value: 2
+    dmg: 3
   numSpace: 1
   hexSize: 0.52

@@ -51,11 +51,11 @@ namespace Game
 			this.origin = origin;
 		}
 
-		public Vector2 ToWorldPos(HexPos hex)
+		public Vector3 ToWorldPos(HexPos hex, float z = 0)
 		{
 			float x = (this.orientation.f0 * hex.q + this.orientation.f1 * hex.r) * this.size.x;
 			float y = (this.orientation.f2 * hex.q + this.orientation.f3 * hex.r) * this.size.y;
-			return new Vector2(x + origin.x, y + origin.y);
+			return new Vector3(x + origin.x, y + origin.y, z);
 		}
 
 		public HexPos ToHexPos(Vector2 pos)

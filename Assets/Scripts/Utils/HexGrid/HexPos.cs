@@ -9,12 +9,12 @@ namespace Game
 		public static HexPos kZero = new HexPos(0, 0);
 		public static List<HexPos> kNeighbors = new List<HexPos>
 		{
-			new HexPos(1, 0),
-			new HexPos(1, -1),
-			new HexPos(0, -1),
-			new HexPos(0, 1),
-			new HexPos(-1, 0),
-			new HexPos(-1, 1),
+			new HexPos(1, 0), 	// E
+			new HexPos(1, -1), 	// NE
+			new HexPos(0, -1),	// NW
+			new HexPos(-1, 0),	// W
+			new HexPos(-1, 1),	// SW
+			new HexPos(0, 1)	// SE
 		};
 
 		public int q;
@@ -56,6 +56,11 @@ namespace Game
 		public static HexPos operator-(HexPos a, HexPos b)
 		{
 			return new HexPos(a.q - b.q, a.r - b.r);
+		}
+
+		public static HexPos operator*(HexPos a, int radius)
+		{
+			return new HexPos(a.q * radius, a.r * radius);
 		}
 
 		public static bool operator==(HexPos lhs, HexPos rhs)
