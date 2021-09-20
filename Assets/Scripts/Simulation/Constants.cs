@@ -29,6 +29,8 @@ namespace Game
 		public float turnTime;
 		public float frameSampleTime;
 		public float frameSampleDelay;
+		public float minZoomScale;
+		public float maxZoomScale;
 
 		public int GetDmg(int value)
 		{

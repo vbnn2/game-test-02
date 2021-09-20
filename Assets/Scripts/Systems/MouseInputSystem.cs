@@ -1,40 +1,105 @@
 using ECS;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Game
 {
-	public class MouseInputSystem : ComponentSystem, IInitialize, IUpdate
+	public class MouseInputSystem : ComponentSystem, IUpdate
 	{
-		private bool _isTouchBegan;
-		private Vector3 _lastMousePos;
-		private Camera _camera;
-
-		public void Initialize()
-		{
-			_camera = Camera.main;
-		}
+		private bool _isTouching;
+		private Vector2 _lastPos;
+		private CameraSize _cameraSize;
 
 		public void Update()
 		{
-			if (Input.GetMouseButton(0))
-			{
-				var mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
+			if (!_isTouching && IsOverUIElement())
+				return;
 
-				if (!_isTouchBegan)
-				{
-					_isTouchBegan = true;
-					_lastMousePos = mousePos;
-				}
-				else
-				{
-					// _world.CreateEntity(new ShipMoveUnit { value = mousePos - _lastMousePos }, new DestroyEntity());
-					_lastMousePos = mousePos;
-				}
-			}
-			else
+			Vector2 mousePos = _cameraSize.Camera.ScreenToWorldPoint(Input.mousePosition) - _cameraSize.Camera.transform.position;
+			if (Input.GetMouseButtonDown(0))
 			{
-				_isTouchBegan = false;
+				MouseDown(mousePos);
+				return;
 			}
+
+			if (Input.GetMouseButtonUp(0))
+			{
+				MouseUp(mousePos);
+				return;
+			}
+
+			if (_isTouching)
+			{
+				MouseMoved(mousePos);
+			}
+
+			if (Input.mouseScrollDelta.y != 0)
+			{
+				MouseZoomed(mousePos, Input.mouseScrollDelta.y);
+			}
+		}
+
+		private void MouseDown(Vector2 mousePos)
+		{
+			if (!_isTouching)
+			{
+				_isTouching = true;
+			}
+
+			_world.CreateEntity(
+				new MouseDown 
+				{ 
+					pos = mousePos
+				},
+				new DestroyEntity()
+			);
+
+			_lastPos = mousePos;
+		}
+
+		private void MouseUp(Vector2 mousePos)
+		{
+			if (!_isTouching)
+				return;
+
+			_isTouching = false;
+			_world.CreateEntity(new MouseUp { pos = mousePos }, new DestroyEntity());
+		}
+
+		private void MouseMoved(Vector2 mousePos)
+		{
+			if (!_isTouching)
+				return;
+
+			_world.CreateEntity(
+				new MouseMoved
+				{
+					pos = mousePos,
+					lastPos = _lastPos
+				},
+				new DestroyEntity()
+			);
+
+			_lastPos = mousePos;
+		}
+
+		private void MouseZoomed(Vector2 mousePos, float delta)
+		{
+			_world.CreateEntity(
+				new MouseZoomed
+				{
+					pos = mousePos,
+					delta = delta
+				}, 
+				new DestroyEntity()
+			);
+		}
+
+		private bool IsOverUIElement()
+		{
+			if (EventSystem.current?.IsPointerOverGameObject() ?? false)
+				return true;
+			return false;
 		}
 	}
 }

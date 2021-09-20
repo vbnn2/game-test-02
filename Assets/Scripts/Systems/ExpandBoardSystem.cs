@@ -45,7 +45,7 @@ namespace Game
 				var fps = totalFrame / _constants.frameSampleTime;
 
 				Debug.Log($"Sample FPS: {fps}");
-				if (fps >= 60f)
+				if (fps >= 30f)
 				{
 					_numAttacker += 1;
 					_numDefender += 1;

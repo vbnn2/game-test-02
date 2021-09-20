@@ -20,7 +20,7 @@ namespace Game
 
 			var entity = _hexGrid[moveUnit.toHex];
 			var transform = _world.Get<Transform>(entity);
-			transform.DOMove(_hexLayout.ToWorldPos(moveUnit.toHex), 0.5f);
+			transform.DOLocalMove(_hexLayout.ToWorldPos(moveUnit.toHex), 0.5f);
 		}
 	}
 }

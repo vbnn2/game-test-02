@@ -8,6 +8,9 @@ namespace Game
 	public class SimulationController : MonoBehaviour
 	{
 		[SerializeField]
+		private CameraSize _cameraSize;
+
+		[SerializeField]
 		private SimulationUI _ui;
 
 		[SerializeField]
@@ -34,10 +37,15 @@ namespace Game
 				new MoveUnitAnimSystem(),
 				new CheckDeathSystem(),
 				new CheckSimulationEndedSystem(),
+
+				new MouseInputSystem(),
+				new PanAndZoomLayerSystem(),
+
 				new GORecyclingSystem(),
 				new DestroyEntitySystem()
 			);
 
+			_world.Inject(_cameraSize);
 			_world.Inject(_ui);
 			_world.Inject(_pool);
 			_world.Inject(_constants);

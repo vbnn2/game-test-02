@@ -113,7 +113,7 @@ MonoBehaviour:
   calculateTangents: 0
   logErrors: 0
   disableRenderingOnOverride: 1
-  _animationName: activity/sleep
+  _animationName: 
   loop: 1
   timeScale: 1
 --- !u!114 &-2380783962858880289

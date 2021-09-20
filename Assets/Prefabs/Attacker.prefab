@@ -226,7 +226,7 @@ MonoBehaviour:
   calculateTangents: 0
   logErrors: 0
   disableRenderingOnOverride: 1
-  _animationName: action/idle
+  _animationName: 
   loop: 1
   timeScale: 1
 --- !u!114 &2475652998269342835

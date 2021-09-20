@@ -25,6 +25,7 @@ namespace Game
 			_world.DestroyEntities(_world.Any<HexBG, Attacker, Defender>());
 			_hexGrid.Clear();
 
+			// Calculate radius
 			var totalRadius = evt.numAttacker + evt.numDefender + evt.numSpace - 1;
 			_hexGrid.InitHexagon(totalRadius, -1);
 
@@ -61,7 +62,8 @@ namespace Game
 		{
 			var transform = _pool.Get<Transform>("hexagon");
 			transform.SetParent(_ui.root);
-			transform.position = _hexLayout.ToWorldPos(hex, 1f);
+			transform.localPosition = _hexLayout.ToWorldPos(hex, 1f);
+			transform.localScale = Vector3.one;
 
 			var entity = _world.CreateEntity();
 			_world.Add(entity, transform);
@@ -73,7 +75,8 @@ namespace Game
 			// Create gameobject
 			var transform = _pool.Get<Transform>("defender");
 			transform.SetParent(_ui.root);
-			transform.position = _hexLayout.ToWorldPos(hex);
+			transform.localPosition = _hexLayout.ToWorldPos(hex);
+			transform.localScale = Vector3.one;
 
 			// Create entity
 			var entity = _world.CreateEntity();
@@ -92,7 +95,8 @@ namespace Game
 		{
 			var transform = _pool.Get<Transform>("attacker");
 			transform.SetParent(_ui.root);
-			transform.position = _hexLayout.ToWorldPos(hex);
+			transform.localPosition = _hexLayout.ToWorldPos(hex);
+			transform.localScale = Vector3.one;
 
 			var entity = _world.CreateEntity();
 			_world.Add(entity, transform);
