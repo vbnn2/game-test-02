@@ -28,7 +28,7 @@ namespace Game
 		public float hexSize;
 		public float turnTime;
 		public float frameSampleTime;
-		public float frameSampleDelay;
+		public int frameSampleSkip;
 		public float minZoomScale;
 		public float maxZoomScale;
 

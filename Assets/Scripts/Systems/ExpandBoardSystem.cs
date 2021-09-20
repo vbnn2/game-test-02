@@ -10,9 +10,9 @@ namespace Game
 		private int _numAttacker;
 		private int _numDefender;
 		private int _numSpace;
-		private int _lastFrameCount;
+		private int _totalFrame;
 		private float _time;
-		private float _delay;
+		private int _skipFrame;
 
 		public void Initialize()
 		{
@@ -20,8 +20,8 @@ namespace Game
 			_numDefender = _constants.defender.startLine;
 			_numSpace = _constants.numSpace;
 			_time = _constants.frameSampleTime;
-			_delay = _constants.frameSampleDelay;
-			_lastFrameCount = Time.frameCount;
+			_skipFrame = _constants.frameSampleSkip;
+			_totalFrame = 0;
 
 			CreateBoardEvent();
 		}
@@ -32,17 +32,18 @@ namespace Game
 			if (state != SimulationState.Initializing)
 				return;
 			
-			if (_delay > 0)
+			if (_skipFrame > 0)
 			{
-				_delay -= Time.unscaledDeltaTime;
+				_skipFrame -= 1;
 				return;
 			}
-			
+
+			_totalFrame += 1;
 			_time -= Time.unscaledDeltaTime;
+			
 			if (_time <= 0)
 			{
-				var totalFrame = Time.frameCount - _lastFrameCount;
-				var fps = totalFrame / _constants.frameSampleTime;
+				var fps = _totalFrame / _constants.frameSampleTime;
 
 				Debug.Log($"Sample FPS: {fps}");
 				if (fps >= 30f)
@@ -52,8 +53,8 @@ namespace Game
 					CreateBoardEvent();
 
 					_time = _constants.frameSampleTime;
-					_delay = _constants.frameSampleDelay;
-					_lastFrameCount = Time.frameCount;
+					_skipFrame = _constants.frameSampleSkip;
+					_totalFrame = 0;
 				}
 				else
 				{
