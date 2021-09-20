@@ -32,6 +32,7 @@ namespace Game
 				new MoveUnitSystem(),
 				new MoveUnitAnimSystem(),
 				new CheckDeathSystem(),
+				new UpdatePowerBarUISystem(),
 				new CheckSimulationEndedSystem(),
 
 				new MouseInputSystem(),

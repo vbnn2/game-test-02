@@ -10,6 +10,7 @@ namespace Game
 		public Transform rootTL;
 		public Transform rootBR;
 
+		public PowerBarUI powerBarUI;
 		public TMP_Text textPause;
 	}
 }
