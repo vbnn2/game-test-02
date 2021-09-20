@@ -77,6 +77,9 @@
      <Compile Include="Assets\Scripts\Components\HexBG.cs" />
      <Compile Include="Assets\Scripts\Components\InitBoardEvent.cs" />
      <Compile Include="Assets\Scripts\Systems\CheckEndSimulationSystem.cs" />
+     <Compile Include="Assets\Scripts\Components\MouseEvents.cs" />
+     <Compile Include="Assets\Scripts\Utils\CameraSize.cs" />
+     <Compile Include="Assets\Scripts\Systems\PanAndZoomLayerSystem.cs" />
      <None Include="Assets\StandardAssets\Axies\Defender\axie.atlas.txt" />
      <None Include="Assets\StandardAssets\Axies\Attacker\axie.atlas.txt" />
     <Reference Include="UnityEngine">

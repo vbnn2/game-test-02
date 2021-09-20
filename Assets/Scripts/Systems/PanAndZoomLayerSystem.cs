@@ -14,7 +14,8 @@ namespace Game
 		private bool _needUpdateInertia;
 		private float _moveSpeed;
 		private Vector2 _moveVel;
-		private float _minScale;
+		private float _minOrthoSize;
+		private float _maxOrthoSize;
 
 		public void Initialize()
 		{
@@ -32,8 +33,13 @@ namespace Game
 			var radius = evt.numAttacker + evt.numDefender + evt.numSpace;
 			_ui.rootTL.localPosition = new Vector2(-radius * Mathf.Sqrt(3),  radius * 1.5f) * _constants.hexSize * 1.2f;
 			_ui.rootBR.localPosition = new Vector2( radius * Mathf.Sqrt(3), -radius * 1.5f) * _constants.hexSize * 1.2f;
-			var diff = _ui.rootBR.localPosition - _ui.rootTL.localPosition;
-			_minScale = Mathf.Max(_cameraSize.Width / Mathf.Abs(diff.x), _cameraSize.Height / Mathf.Abs(diff.y));
+			var bb = _ui.rootBR.localPosition - _ui.rootTL.localPosition;
+
+			_minOrthoSize = 2;
+			_maxOrthoSize = Mathf.Min((Mathf.Abs(bb.x) / _cameraSize.Ratio) / 2, Mathf.Abs(bb.y) / 2);
+
+			_ui.minimapCamera.orthographicSize = Mathf.Max(Mathf.Abs(bb.x) / 2, Mathf.Abs(bb.y) / 2); ;
+			_cameraSize.SetBorderThickness(_ui.minimapCamera.orthographicSize * 0.05f);
 		}
 
 		public void Update()
@@ -72,13 +78,10 @@ namespace Game
 
 			_world.Get(entity, out MouseZoomed evt);
 
-			var root = _ui.root;
-			var scale = root.localScale.x;
-			var newScale = Mathf.Clamp(scale + evt.delta * 0.1f, _minScale, _constants.maxZoomScale);
-			var diff = root.localPosition - evt.pos;
-
-			root.localScale = Vector3.one * newScale;
-			root.localPosition = evt.pos + diff * (newScale / scale);
+			var orthoSize = _cameraSize.Camera.orthographicSize;
+			orthoSize *= (1.0f - evt.delta * 0.1f);
+			orthoSize = Mathf.Clamp(orthoSize, _minOrthoSize, _maxOrthoSize);
+			_cameraSize.SetOrthoSize(orthoSize);
 
 			TranslateTarget(Vector2.zero);
 		}
@@ -91,31 +94,32 @@ namespace Game
 			topLeft += diff;
 			botRight += diff;
 
-			var diffMinX = topLeft.x - _cameraSize.Left;
+			var diffMinX = topLeft.x - _cameraSize.TopLeft.x;
 			if (diffMinX > 0)
 			{
 				diff.x -= diffMinX;
 			}
 
-			var diffMaxX = botRight.x - _cameraSize.Right;
+			var diffMaxX = botRight.x - _cameraSize.BottomRight.x;
 			if (diffMaxX < 0)
 			{
 				diff.x -= diffMaxX;
 			}
 
-			var diffMinY = botRight.y - _cameraSize.Bottom;
+			var diffMinY = botRight.y - _cameraSize.BottomRight.y;
 			if (diffMinY > 0)
 			{
 				diff.y -= diffMinY;
 			}
 
-			var diffMaxY = topLeft.y - _cameraSize.Top;
+			var diffMaxY = topLeft.y - _cameraSize.TopLeft.y;
 			if (diffMaxY < 0)
 			{
 				diff.y -= diffMaxY;
 			}
 
-			_ui.root.Translate(diff);
+			// _ui.root.Translate(diff);
+			_cameraSize.transform.Translate(-diff);
 		}
 
 		private void UpdateInertia()

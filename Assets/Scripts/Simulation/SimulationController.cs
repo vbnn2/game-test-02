@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using ECS;
 using UnityEngine;
 
@@ -28,7 +26,6 @@ namespace Game
 			_world.AddSystem(
 				new InitStateSystem(),
 				new InitBoardSystem(),
-				new ExpandBoardSystem(),
 				new UpdateTurnTimeSystem(),
 				new UpdateTurnSystem(),
 				new UpdateHPUISystem(),
@@ -40,6 +37,7 @@ namespace Game
 
 				new MouseInputSystem(),
 				new PanAndZoomLayerSystem(),
+				new ExpandBoardSystem(),
 
 				new GORecyclingSystem(),
 				new DestroyEntitySystem()
