@@ -30,6 +30,7 @@ namespace Game
 			});
 
 			_ui.powerBarUI.SetPower(totalAtkHp, totalDefHp);
+			_ui.powerBarUI.SetTotalMinion(_world.Any<Attacker, Defender>().Count);
 
 			_collector.Clear();
 		}

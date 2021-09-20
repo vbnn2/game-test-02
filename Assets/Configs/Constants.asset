@@ -29,6 +29,6 @@ MonoBehaviour:
   hexSize: 0.52
   turnTime: 1
   frameSampleTime: 0.5
-  frameSampleDelay: 0.05
+  frameSampleSkip: 5
   minZoomScale: 0.25
   maxZoomScale: 3

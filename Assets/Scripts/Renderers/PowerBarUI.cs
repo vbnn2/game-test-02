@@ -14,6 +14,9 @@ namespace Game
 		private TMP_Text _textDefPower;
 
 		[SerializeField]
+		private TMP_Text _textTotalMinion;
+
+		[SerializeField]
 		private Image _imgAtk;
 
 		[SerializeField]
@@ -27,6 +30,11 @@ namespace Game
 			var ratio = (float)(atkPower) / (float)(atkPower + defPower);
 			_imgAtk.rectTransform.DOAnchorMax(new Vector2(ratio, 1f), 0.25f);
 			_imgDef.rectTransform.DOAnchorMin(new Vector2(ratio, 0f), 0.25f);
+		}
+
+		public void SetTotalMinion(int value)
+		{
+			_textTotalMinion.text = $"Total: {value}";
 		}
 	}
 }
