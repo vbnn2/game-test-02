@@ -18,7 +18,6 @@ namespace Game
 		private GOPool _pool;
 		
 		private World _world;
-		
 
 		private void Awake()
 		{
@@ -69,6 +68,21 @@ namespace Game
 		private void OnDestroy()
 		{
 			_world.CleanUp();
+		}
+
+		public void OnPause()
+		{
+			_world.Get(_world.UniqueEntity, out SimulationState state);
+			if (state == SimulationState.Simulating)
+			{
+				_ui.textPause.text = "Resume";
+				_world.Replace(_world.UniqueEntity, SimulationState.Pausing);
+			}
+			else if (state == SimulationState.Pausing)
+			{
+				_ui.textPause.text = "Pause";
+				_world.Replace(_world.UniqueEntity, SimulationState.Simulating);
+			}
 		}
 	}
 }

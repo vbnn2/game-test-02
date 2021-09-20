@@ -4,6 +4,7 @@ namespace Game
 	{
 		Initializing,
 		Simulating,
+		Pausing,
 		Ended
 	}
 }

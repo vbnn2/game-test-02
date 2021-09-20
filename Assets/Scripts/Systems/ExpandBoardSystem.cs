@@ -34,11 +34,11 @@ namespace Game
 			
 			if (_delay > 0)
 			{
-				_delay -= Time.deltaTime;
+				_delay -= Time.unscaledDeltaTime;
 				return;
 			}
 			
-			_time -= Time.deltaTime;
+			_time -= Time.unscaledDeltaTime;
 			if (_time <= 0)
 			{
 				var totalFrame = Time.frameCount - _lastFrameCount;

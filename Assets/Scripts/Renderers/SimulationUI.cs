@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 namespace Game
@@ -8,5 +9,7 @@ namespace Game
 		public Transform root;
 		public Transform rootTL;
 		public Transform rootBR;
+
+		public TMP_Text textPause;
 	}
 }
