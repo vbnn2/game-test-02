@@ -28,5 +28,7 @@ MonoBehaviour:
   numSpace: 1
   hexSize: 0.52
   turnTime: 1
-  frameSampleTime: 1
-  frameSampleDelay: 0.2
+  frameSampleTime: 0.5
+  frameSampleDelay: 0.05
+  minZoomScale: 0.25
+  maxZoomScale: 3
