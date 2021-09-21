@@ -7,6 +7,10 @@ namespace Game
 	[CreateAssetMenu]
 	public class Constants : ScriptableObject
 	{
+		public const int kEmpty = 0;
+		public const string kAnimIdleName = "action/idle";
+		public const string kAnimAttackName = "attack/melee/back-gore";
+
 		[Serializable]
 		public class Minion
 		{
@@ -29,8 +33,6 @@ namespace Game
 		public float turnTime;
 		public float frameSampleTime;
 		public int frameSampleSkip;
-		public float minZoomScale;
-		public float maxZoomScale;
 
 		public int GetDmg(int value)
 		{

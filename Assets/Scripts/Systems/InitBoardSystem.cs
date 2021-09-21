@@ -1,5 +1,6 @@
 using System.Linq;
 using ECS;
+using Spine.Unity;
 using UnityEngine;
 
 namespace Game
@@ -9,7 +10,7 @@ namespace Game
 		private SimulationUI _ui;
 		private Constants _constants;
 		private GOPool _pool;
-		private HexGid<int> _hexGrid;
+		private HexGrid _hexGrid;
 		private HexLayout _hexLayout;
 		
 		public void Initialize()
@@ -27,12 +28,16 @@ namespace Game
 
 			// Calculate radius
 			var totalRadius = evt.numAttacker + evt.numDefender + evt.numSpace - 1;
-			_hexGrid.InitHexagon(totalRadius, -1);
+			_hexGrid.InitHexagon(totalRadius, Constants.kEmpty);
 
 			// Init background
-			foreach (var hex in _hexGrid.Keys)
+			for (int i = 0; i <= totalRadius; i++)
 			{
-				CreateHexBackgound(hex);
+				var hexes = _hexGrid.GetRingPos(HexPos.kZero, i);
+				foreach (var hex in hexes)
+				{
+					CreateHexBackgound(hex);
+				}
 			}
 
 			// Init defender
@@ -82,6 +87,9 @@ namespace Game
 			var entity = _world.CreateEntity();
 			_world.Add(entity, transform);
 			_world.Add(entity, transform.GetComponent<HPRenderer>());
+			_world.Add(entity, transform.GetComponent<MeshRenderer>());
+			_world.Add(entity, transform.GetComponent<SkeletonAnimation>());
+			_world.Add(entity, new SpineUpdate());
 			_world.Add(entity, hex);
 			_world.Add(entity, new Defender());
 			_world.Add(entity, new BaseHP { value = _constants.defender.startHP });
@@ -101,6 +109,9 @@ namespace Game
 			var entity = _world.CreateEntity();
 			_world.Add(entity, transform);
 			_world.Add(entity, transform.GetComponent<HPRenderer>());
+			_world.Add(entity, transform.GetComponent<MeshRenderer>());
+			_world.Add(entity, transform.GetComponent<SkeletonAnimation>());
+			_world.Add(entity, new SpineUpdate());
 			_world.Add(entity, hex);
 			_world.Add(entity, new Attacker());
 			_world.Add(entity, new BaseHP { value = _constants.attacker.startHP });

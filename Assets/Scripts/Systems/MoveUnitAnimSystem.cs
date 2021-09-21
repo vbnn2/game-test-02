@@ -6,7 +6,7 @@ namespace Game
 {
 	public class MoveUnitAnimSystem : ComponentSystem, IInitialize
 	{
-		private HexGid<int> _hexGrid;
+		private HexGrid _hexGrid;
 		private HexLayout _hexLayout;
 
 		public void Initialize()

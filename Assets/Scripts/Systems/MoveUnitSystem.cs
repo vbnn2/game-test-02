@@ -6,7 +6,7 @@ namespace Game
 {
 	public class MoveUnitSystem : ComponentSystem, IInitialize
 	{
-		private HexGid<int> _hexGrid;
+		private HexGrid _hexGrid;
 
 		public void Initialize()
 		{
@@ -18,7 +18,7 @@ namespace Game
 			_world.Get(moveEntity, out MoveUnit moveUnit);
 
 			_hexGrid[moveUnit.toHex] = _hexGrid[moveUnit.fromHex];
-			_hexGrid[moveUnit.fromHex] = -1;
+			_hexGrid[moveUnit.fromHex] = Constants.kEmpty;
 			_world.Replace(_hexGrid[moveUnit.toHex], moveUnit.toHex);
 		}
 	}

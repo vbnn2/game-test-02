@@ -25,13 +25,13 @@ namespace Game
 				origin
 			);
 
-			var hexGrid = new HexGid<int>();
+			var hexGrid = new HexGrid();
 			hexGrid.InitHexagon(radius);
 
-			foreach (var pos in hexGrid.Keys)
-			{
-				Gizmos.DrawWireSphere(layout.ToWorldPos(pos), layout.size.x * Mathf.Sqrt(3) / 2f);
-			}
+			// foreach (var pos in hexGrid.Keys)
+			// {
+			// 	Gizmos.DrawWireSphere(layout.ToWorldPos(pos), layout.size.x * Mathf.Sqrt(3) / 2f);
+			// }
 
 			// var listPos = new List<HexPos>
 			// {

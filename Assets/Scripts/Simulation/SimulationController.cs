@@ -37,6 +37,7 @@ namespace Game
 
 				new MouseInputSystem(),
 				new PanAndZoomLayerSystem(),
+				new UpdateSpineSystem(),
 				new ExpandBoardSystem(),
 
 				new GORecyclingSystem(),
@@ -47,7 +48,7 @@ namespace Game
 			_world.Inject(_ui);
 			_world.Inject(_pool);
 			_world.Inject(_constants);
-			_world.Inject(new HexGid<int>());
+			_world.Inject(new HexGrid());
 			_world.Inject(new HexLayout(HexOrientation.kPointy, Vector2.one * _constants.hexSize, Vector2.zero));
 		}
 

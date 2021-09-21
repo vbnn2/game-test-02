@@ -1,3 +1,4 @@
+using DG.Tweening;
 using ECS;
 using UnityEngine;
 
@@ -5,7 +6,7 @@ namespace Game
 {
 	public class CheckDeathSystem : ComponentSystem, IInitialize, IUpdate
 	{
-		private HexGid<int> _hexGrid;
+		private HexGrid _hexGrid;
 		private ICollector _collector;
 
 		public void Initialize()
@@ -20,8 +21,8 @@ namespace Game
 			foreach (var entity in _collector)
 			{
 				_world.Get(entity, out HexPos hex);
-				_hexGrid[hex] = -1;
-				_world.Add(entity, new DestroyEntity());
+				_hexGrid[hex] = Constants.kEmpty;
+				_world.Add(entity, new DestroyEntity { delay = 0.75f });
 			}
 
 			_collector.Clear();
