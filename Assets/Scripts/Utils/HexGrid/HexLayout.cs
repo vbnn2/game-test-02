@@ -63,7 +63,29 @@ namespace Game
 			Vector2 pt = (pos - origin) / size;
 			float q = this.orientation.b0 * pt.x + this.orientation.b1 * pt.y;
 			float r = this.orientation.b2 * pt.x + this.orientation.b3 * pt.y;
-			return new HexPos((int)q, (int)r);
+			float s = -q -r;
+
+			int qi = (int)(Mathf.Round(q));
+			int ri = (int)(Mathf.Round(r));
+			int si = (int)(Mathf.Round(s));
+			double q_diff = Mathf.Abs(qi - q);
+			double r_diff = Mathf.Abs(ri - r);
+			double s_diff = Mathf.Abs(si - s);
+			if (q_diff > r_diff && q_diff > s_diff)
+			{
+				qi = -ri - si;
+			}
+			else
+				if (r_diff > s_diff)
+			{
+				ri = -qi - si;
+			}
+			else
+			{
+				si = -qi - ri;
+			}
+
+			return new HexPos(qi, ri);
 		}
 	}
 }

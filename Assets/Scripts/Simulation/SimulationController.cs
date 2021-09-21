@@ -36,6 +36,7 @@ namespace Game
 				new DeathAnimSystem(),
 				new UpdatePowerBarUISystem(),
 				new CheckSimulationEndedSystem(),
+				new SelectHexCellSystem(),
 
 				new MouseInputSystem(),
 				new PanAndZoomLayerSystem(),

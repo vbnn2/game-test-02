@@ -7,6 +7,7 @@ namespace Game
 	public class MouseInputSystem : ComponentSystem, IUpdate
 	{
 		private bool _isTouching;
+		private Vector2 _startPos;
 		private Vector2 _lastPos;
 		private CameraSize _cameraSize;
 
@@ -33,7 +34,7 @@ namespace Game
 				MouseMoved(mousePos);
 			}
 
-			if (Input.mouseScrollDelta.y != 0)
+			if (!IsOverUIElement() && Input.mouseScrollDelta.y != 0)
 			{
 				MouseZoomed(mousePos, Input.mouseScrollDelta.y);
 			}
@@ -55,6 +56,7 @@ namespace Game
 			);
 
 			_lastPos = mousePos;
+			_startPos = mousePos;
 		}
 
 		private void MouseUp(Vector2 mousePos)
@@ -63,7 +65,14 @@ namespace Game
 				return;
 
 			_isTouching = false;
-			_world.CreateEntity(new MouseUp { pos = mousePos }, new DestroyEntity());
+			_world.CreateEntity(
+				new MouseUp
+				{
+					pos = mousePos,
+					lastPos = _lastPos,
+					startPos = _startPos 
+				},
+				new DestroyEntity());
 		}
 
 		private void MouseMoved(Vector2 mousePos)
@@ -75,7 +84,8 @@ namespace Game
 				new MouseMoved
 				{
 					pos = mousePos,
-					lastPos = _lastPos
+					lastPos = _lastPos,
+					startPos = _startPos
 				},
 				new DestroyEntity()
 			);

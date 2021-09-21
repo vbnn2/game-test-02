@@ -12,5 +12,7 @@ namespace Game
 
 		public PowerBarUI powerBarUI;
 		public TMP_Text textPause;
+		public MinionDetailUI minionDetailUI;
+		public SimulationEndedDialog simulationEndedDialog;
 	}
 }
