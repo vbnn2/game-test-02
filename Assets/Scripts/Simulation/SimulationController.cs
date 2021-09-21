@@ -29,9 +29,11 @@ namespace Game
 				new UpdateTurnSystem(),
 				new UpdateHPUISystem(),
 				new AttackSystem(),
+				new AttackAnimSystem(),
 				new MoveUnitSystem(),
 				new MoveUnitAnimSystem(),
 				new CheckDeathSystem(),
+				new DeathAnimSystem(),
 				new UpdatePowerBarUISystem(),
 				new CheckSimulationEndedSystem(),
 
@@ -39,6 +41,7 @@ namespace Game
 				new PanAndZoomLayerSystem(),
 				new UpdateSpineSystem(),
 				new ExpandBoardSystem(),
+				new UpdateCharacterFacingSystem(),
 
 				new GORecyclingSystem(),
 				new DestroyEntitySystem()
