@@ -145,7 +145,7 @@ namespace ECS
 		{
 			int filterId = TypeId<IFilterBuilder, FilterBuilder<All<C1, C2>>>.NextId;
 			_cacheGroups.TryGetValue(filterId, out Group group);
-
+			new All<C1, C2>();
 			if (group == null)
 			{
 				var filter = new FilterBuilder<All<C1, C2>>().Build(this);
@@ -160,7 +160,7 @@ namespace ECS
 		{
 			int filterId = TypeId<IFilterBuilder, FilterBuilder<All<C1, C2, C3>>>.NextId;
 			_cacheGroups.TryGetValue(filterId, out Group group);
-
+			new All<C1, C2, C3>();
 			if (group == null)
 			{
 				var filter = new FilterBuilder<All<C1, C2, C3>>().Build(this);
@@ -175,7 +175,7 @@ namespace ECS
 		{
 			int filterId = TypeId<IFilterBuilder, FilterBuilder<EmptyFilter, Any<C1, C2>>>.NextId;
 			_cacheGroups.TryGetValue(filterId, out Group group);
-
+			new Any<C1, C2>();
 			if (group == null)
 			{
 				var filter = new FilterBuilder<EmptyFilter, Any<C1, C2>>().Build(this);
@@ -190,7 +190,8 @@ namespace ECS
 		{
 			int filterId = TypeId<IFilterBuilder, FilterBuilder<EmptyFilter, Any<C1, C2, C3>>>.NextId;
 			_cacheGroups.TryGetValue(filterId, out Group group);
-
+			new Any<C1, C2, C3>();
+			
 			if (group == null)
 			{
 				var filter = new FilterBuilder<EmptyFilter, Any<C1, C2, C3>>().Build(this);
